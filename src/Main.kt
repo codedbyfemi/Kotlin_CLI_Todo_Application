@@ -1,6 +1,6 @@
 fun main() {
-    val tasks = mutableListOf<Todo>();
-    var taskId = 1;
+    val tasks = mutableListOf<Todo>()
+    var taskId = 1
 
     while (true) {
         println("\nTo-Do Manager")
@@ -21,10 +21,24 @@ fun main() {
 
             2 -> {
                 println("\nYour Tasks:")
+                println("\nCompleted:")
                 tasks.forEach {
                     val status = if (it.isDone) "[✓]" else "[ ]"
-                    println("${it.id}. $status ${it.description}")
+
+                    if (it.isDone) {
+                        println("${it.id}. $status ${it.description}")
+                    }
                 }
+                println("\nNot Completed:")
+
+                tasks.forEach {
+                    val status = if (it.isDone) "[✓]" else "[ ]"
+
+                    if (!it.isDone) {
+                        println("${it.id}. $status ${it.description}")
+                    }
+                }
+
             }
 
             3 -> {
